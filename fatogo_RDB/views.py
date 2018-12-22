@@ -12,4 +12,4 @@ def index(request):
 
 #2.hotel_page url setting
 def hotel_1(request):
-    return render(request, '2.hotel_page/hotel_1.html')
+    return render(request, 'hotel_page/hotel_1.html')
