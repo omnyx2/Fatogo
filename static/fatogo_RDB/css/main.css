@@ -1,0 +1,466 @@
+/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+/* 기본 html 픽셀 : 16px 100% 1em*/
+/* 사용 폰트 */
+body{
+   -webkit-overflow-scrolling:touch;
+   overflow-x: hidden;
+}
+
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+/* 파투고 로고 헤더 */
+header h1 a {
+  display: block;
+  text-indent: -9999px;
+}
+
+header h1 {
+  overflow: visible;
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  width: 22.4vmin;
+  height: 8vmin;
+  margin: 0 0 0 -11.2vmin;
+  background-image: url("../img/FaToGO.png");
+  background-size: 22.4vmin 8vmin;
+}
+
+header {
+  position: relative;
+  height: 26vmin;
+  background-color: #fbffff;
+}
+
+/* 틀을 위한 vertical */
+.vertical {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  margin: 0 6.1%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  margin-bottom: 10.6vw;
+  list-style: none;
+  overflow: hidden;
+  position: relative;
+  height: 111.2vw;
+  object-fit: contain;
+  -webkit-backdrop-filter: blur(48px);
+  backdrop-filter: blur(48px);
+  background-color: #ffffff;
+  border-bottom: solid 1px #efefef;
+}
+
+ul li a p img {
+  border-radius: 8px;
+}
+
+img {
+  width: 100%;
+  height: 49vw;
+}
+
+p, h2, h3, h4 {
+  text-decoration: none;
+  font-family: 'Noto Sans KR';
+  color: #4a4e52;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.hotel_description {
+  height: 203px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.hotel_name, .hotel_place, .hotel_evaluation, .hotel_amenity, .hotel_price {
+  position: absolute;
+}
+
+.hotel_name {
+  height: 36px;
+}
+
+.hotel_name h2 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #4a4e52;
+}
+
+.hotel_place {
+  top: 46px;
+}
+
+.hotel_place h3 {
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.hotel_evaluation {
+  top: 46px;
+  right: 1px;
+}
+
+.hotel_star, .hotel_grade, .hotel_review_number {
+  display: inline-block;
+}
+
+.hotel_star {
+  margin-right: 0px;
+  color: #fecb18;
+}
+
+.hotel_grade {
+  margin-right: 7px;
+}
+
+.hotel_grade h3 {
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+.hotel_review_number h4 {
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.21;
+}
+
+.hotel_amenity {
+  top: 86px;
+  height: 15px;
+}
+
+.hotel_amenity_icons, .hotel_amenity p {
+  display: inline-block;
+}
+
+.hotel_amenity_icons {
+  width: 83px;
+  height: 23px;
+  background-color: gray;
+}
+
+.hotel_price {
+  top: 135.5px;
+  right: 1px;
+}
+
+.hotel_price h2 {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-right: 7px;
+}
+
+.hotel_price p {
+  display: inline-block;
+  font-size: 26px;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-align: left;
+  color: #2bb0bf;
+}
+
+
+
+
+footer {
+  margin-top: 3px;
+  overflow: hidden;
+  clear: both;
+  position: relative;
+  padding: 23px 16px 16px 16px;
+  background: rgb(245, 245, 245);
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+html {
+  color: #bf3a3a;
+  font-size: 100%;
+  line-height: 1.4;
+}
+
+@media only screen and (min-width : 1024px) {
+   .vertical{
+      margin: 0 18.3%;
+   }
+}
+
+
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers
+ */
+.hidden {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+  /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a, a:visited {
+    text-decoration: none;
+  }
+
+  a[href]:after {
+    content: " ("attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " ("attr(title) ")";
+  }
+
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+  <!-- 메타셋 -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="스마트한 MT 예약 대행 서비스, 파투고">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <!-- 스타일시트 링크 및 폰트 링크 -->
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+  
+  {% load static %}
+
+  <link rel="stylesheet" href="{% static 'fatogo_RDB/css/normalize.css'%}">
+  <link rel="stylesheet" href="{% static 'fatogo_RDB/css/main.css'%}">
+
+  <title>Fatogo</title>
+
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+  <!-- 맨 위의 헤더 -->
+  <header>
+    <h1>
+      <a href="index.html" title="Fatogo">Fatogo</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
+    </h1>
+  </header>
+
+  <!-- 목록 -->
+  <div class="vertical">
+    <ul>
+      <li class="item" id="item01">
+        <a href="/2.hotel_page/hotel_1.html"><!-- 2.hotel_page 폴더의 hotel_1.html 파일로 이동함-->
+          <p class="pic">
+            <img src="{% static "fatogo_RDB/img/Hotel_1.png" %}" altalt="김파투고의 김여행 김모텔 프론트사진">
+            <!-- 이미지 파일 -->
+          </p>
+          <div class="hotel_description">
+            <div class="hotel_name">
+              <h2>라마다 프라자 광주 호텔</h2>
+            </div>
+
+            <div class="hotel_place">
+              <h3>광주광역시 서구</h3>
+            </div>
+            <div class="hotel_evaluation">
+
+              <div class="hotel_star">
+                ★★★★☆
+              </div>
+              <div class="hotel_grade">
+                <h3>7.5</h3>
+              </div>
+              <div class="hotel_review_number">
+                <h4>(330)</h4>
+              </div>
+            </div>
+
+            <div class="hotel_amenity">
+              <div class="hotel_amenity_icons">
+              </div>
+              <p>+4</p>
+            </div>
+            <div class="hotel_price">
+              <h2>적정가</h2>
+              <p>350,000원~</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="item" id="item02">
+        <a href="2.hotel_page/hotel_1.html"><!-- 2.hotel_page 폴더의 hotel_1.html 파일로 이동함-->
+          <p class="pic">
+            <img src="{% static "fatogo_RDB/img/Hotel_1.png" %}" altalt="김파투고의 김여행 김모텔 프론트사진"><!-- 이미지 파일 -->
+          </p>
+          <div class="hotel_description">
+            <div class="hotel_name">
+              <h2>라마다 프라자 광주 호텔</h2>
+            </div>
+
+            <div class="hotel_place">
+              <h3>광주광역시 서구</h3>
+            </div>
+            <div class="hotel_evaluation">
+
+              <div class="hotel_star">
+                ★★★★☆
+              </div>
+              <div class="hotel_grade">
+                <h3>7.5</h3>
+              </div>
+              <div class="hotel_review_number">
+                <h4>(330)</h4>
+              </div>
+            </div>
+
+            <div class="hotel_amenity">
+              <div class="hotel_amenity_icons">
+              </div>
+              <p>+4</p>
+            </div>
+            <div class="hotel_price">
+              <h2>적정가</h2>
+              <p>350,000원~</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+  <footer>
+    <p>&copy; HTML CheatSheet</p>
+    <address>Contact <a href="mailto:me@htmlg.com">me</a></address>
+  </footer>
+
+
+
+
+  <!-- 자바스크립트 -->
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+  </script>
+    
+  <script type="text/javascript" src="{% static "fatogo_RDB/js/plugins.js" %}"></script>
+  <script type="text/javascript" src="{% static "fatogo_RDB/js/main.js" %}"></script> 
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function() {
+      ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+  </script>
+
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</body>
+
+</html>
