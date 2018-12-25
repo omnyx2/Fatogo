@@ -47,6 +47,9 @@ class CompanyInfomations(models.Model):
     hotelAvgScore = models.CharField(max_length=3, default='testasdas')
     hotelTraffic = models.IntegerField(default=0)
     
+    def getHotelName():
+        return hotelName
+    
 class CompanyMasterInfomations(models.Model):
     companyInfo_CompanyMasterInfomationsFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE, default='none')
     masterName = models.CharField(max_length=100, default='testasdas')

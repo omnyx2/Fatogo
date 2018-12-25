@@ -8,16 +8,20 @@
   <meta name="description" content="스마트한 MT 예약 대행 서비스, 파투고">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    
+  {%load static%}
 
   <!-- 스타일시트 링크 및 폰트 링크 -->
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess
-  /notosanskr.css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/bill.css">
-  <link rel="stylesheet" href="css\swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+    
+    
+    
+  <link rel="stylesheet" href="{% static 'bill_page/css/swiper.min.css' %}">
+  <link rel="stylesheet" href="{% static 'bill_page/css/normalize.css'%}">
+  <link rel="stylesheet" href="{% static 'bill_page/css/bill.css'%}">
 
 
 
@@ -35,7 +39,7 @@
   <!-- 맨 위의 헤더 -->
   <header>
     <h1>
-      <a href="C:\Users\nucle\Desktop\Dev\1.main_page\index.html" title="Fatogo">Fatogo</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
+      <a href="../../" title="Fatogo">Fatogo</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
     </h1>
   </header>
 
@@ -180,24 +184,111 @@
     </div>
 
     <div class="full_price">
+      <h1>총합</h1>
+      <div class="price_text">
+        350,000원
+      </div>
+    </div>
+
+
+    <div class="half">
+      <div class="tab">
+        <input id="tab-one" type="checkbox" name="tabs">
+        <label for="tab-one">예약 및 숙소 안내 공지</label>
+        <div class="tab-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+        </div>
+      </div>
+      <div class="tab">
+        <input id="tab-two" type="checkbox" name="tabs">
+        <label for="tab-two">환불 공지</label>
+        <div class="tab-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="form_inputs">
+    <div class="vertical">
+      <h3>사용자 정보 입력</h3>
+      <form class="user_info_input" action="thankyou.html" method="post"> {% csrf_token %}
+
+        <fieldset id="fieldset_1">
+
+          <input type="text" name="" placeholder="성함" id="name">
+          <input type="text" name="" placeholder="전화번호" id="phone">
+
+          <input id="agree_checkbox" type="checkbox" name="" value="">
+          <label for="agree_checkbox">
+            <div class="dong_ui">
+              <a href="#.dong_ui" id="myBtn">숙소 이용규칙, 취소규정, 개인정보 제 3자 제공약관개인정보수집/이용약관</a> 에 동의합니다.
+            </div>
+              
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>숙소 공지사항</h2>
+                </div>
+                <div class="modal-footer">
+                  <h3>숙소 이용규칙</h3>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="modal-footer">
+                  <h3>숙소 예약 취소 규정</h3>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="modal-footer">
+                  <h3>개인정보 제 3자 제공약관</h3>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="modal-footer">
+                  <h3>개인정보 수집 약관</h3>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+              </div>
+            </div>
+          </label>
+
+
+        </fieldset>
+
+        <fieldset id="fieldset_2">
+
+          <legend>결제 방식</legend>
+
+          <input type="radio" name="pay_option" value="kakao" id="kakao">
+          <input type="radio" name="pay_option" value="paycheck" id="paycheck">
+        </fieldset>
+
 
     </div>
-    <div class="reservation_notice">
-
+    <div class="submit">
+      <input type="submit" name="" value="결제하기">
     </div>
-    <div class="payback_notice">
-
-    </div>
-    <form class="" action="index.html" method="post">
-      <fieldset>
-        <input type="text" name="" value="성함">
-        <input type="text" name="" value="전화번호">
-        <input type="checkbox" name="" value=""><a href="#">숙소 이용규칙, 취소규정, 개인정보 제 3자 제공약관개인정보수집/이용약관</a> 에 동의합니다.<br>
-      </fieldset>
-      <fieldset>
-        <legend>결제 방식</legend>
-      </fieldset>
     </form>
+
   </div>
 
 
@@ -205,24 +296,18 @@
 
 
 
+  <script src="{% static 'bill_page/js/swiper.min.js'%}"></script>
 
-
-  <footer>
-    <p>&copy; HTML CheatSheet</p>
-    <address>Contact <a href="mailto:me@htmlg.com">me</a></address>
-  </footer>
-
-
-  <script src="js\swiper.min.js"></script>
-
-  <!-- 자바스크립트 -->
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="{% static 'bill_page/js/vendor/modernizr-3.6.0.min.js'%}"></script>
+    
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
   </script>
-  <script src="js/plugins.js"></script>
-  <script src="js/bill.js"></script>
+    
+  <script src="{% static 'bill_page/js/plugins.js'%}"></script>
+
+  <script src="{% static 'bill_page/js/bill.js'%}"></script>
 
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

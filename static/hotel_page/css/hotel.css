@@ -7,6 +7,8 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+
+
 a {
   text-decoration: none;
 }
@@ -41,7 +43,7 @@ header h1 {
   width: 84px;
   height: 30px;
   margin: 0 0 0 -42px;
-  background-image: url("../img/FaToGO.png");
+  background-image: url("../../img/FaToGO.png");
   background-size: 84px 30px;
   background-repeat: no-repeat;
 }
@@ -337,7 +339,7 @@ header {
 
 .hotel_room_selectedroom h4 {
   display: inline;
-  margin-left: 112px;
+  margin-left: 100px;
   font-size: 24px;
   font-weight: 300;
   line-height: 1.21;

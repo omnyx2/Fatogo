@@ -26,7 +26,7 @@
 
 <body>
   <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <p 102="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
   <!-- Add your site or application content here -->
@@ -34,18 +34,61 @@
   <!-- 맨 위의 헤더 -->
   <header>
     <h1>
-      <a href="index.html" title="Fatogo">Fatogo</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
+      <a href="" title="Fatogo">Fatogo</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
     </h1>
   </header>
 
   <!-- 목록 -->
   <div class="vertical">
     <ul>
+      {% if hotel_infomation_list %}
+      {% for hotel in hotel_infomation_list %}
+      {% for hotel_address in hotel_address_parts %}
       <li class="item" id="item01">
-        <a href="hotel_page/hotel_1.html"><!-- 2.hotel_page 폴더의 hotel_1.html 파일로 이동함-->
+        <a href="{% url 'hotel_main_test' hotel_name %} "><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
           <p class="pic">
-            <img src="{% static 'img/Hotel_1.png' %}{% static "img/Hotel_1.png" %}" altalt="김파투고의 김여행 김모텔 프론트사진">
+            <img src="{% static 'img/Hotel_1.png' %}" alt="김파투고의 김여행 김모텔 프론트사진">
             <!-- 이미지 파일 -->
+          </p>
+          <div class="hotel_description">
+            <div class="hotel_name">
+              <h2>{{hotel.hotelName}}</h2>
+            </div> 
+            <div class="hotel_place">
+              <h3>{{hotel_address.address1}} {{hotel_address.address3}}</h3>
+            </div>
+            <div class="hotel_evaluation">
+
+              <div class="hotel_star">
+                ★★★★☆
+              </div>
+              <div class="hotel_grade">
+                <h3>{{hotel.hotelAvgScore}}</h3>
+              </div>
+              <div class="hotel_review_number">
+                <h4>(330)</h4>
+              </div>
+            </div>
+
+            <div class="hotel_amenity">
+              <div class="hotel_amenity_icons">
+              </div>
+              <p>+4</p>
+            </div>
+            <div class="hotel_price">
+              <h2>적정가</h2>
+              <p>350,000원~</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+      {% endfor %}
+      {% endif %} 
+      <li class="item" id="item02">
+        <a href="{% url 'hotel_main' %}"><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
+          <p class="pic">
+            <img src="{% static 'img/Hotel_1.png' %}" altalt="김파투고의 김여행 김모텔 프론트사진"><!-- 이미지 파일 -->
           </p>
           <div class="hotel_description">
             <div class="hotel_name">
@@ -80,8 +123,8 @@
           </div>
         </a>
       </li>
-      <li class="item" id="item02">
-        <a href="hotel_page/hotel_1.html"><!-- 2.hotel_page 폴더의 hotel_1.html 파일로 이동함-->
+      <li class="item" id="item03">
+        <a href="{% url 'hotel_main' %}"><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
           <p class="pic">
             <img src="{% static 'img/Hotel_1.png' %}" altalt="김파투고의 김여행 김모텔 프론트사진"><!-- 이미지 파일 -->
           </p>
@@ -136,14 +179,14 @@
 
 
   <!-- 자바스크립트 -->
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="{% static 'fatogo_RDB/js/vendor/modernizr-3.6.0.min.js' %}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+    window.jQuery || document.write('<script src="{% static 'fatogo_RDB/js/vendor/jquery-3.3.1.min.js' %}"><\/script>')
   </script>
     
-  <script type="text/javascript" src="{% static "fatogo_RDB/js/plugins.js" %}"></script>
-  <script type="text/javascript" src="{% static "fatogo_RDB/js/main.js" %}"></script> 
+  <script type="text/javascript" src="{% static 'fatogo_RDB/js/plugins.js' %}"></script>
+  <script type="text/javascript" src="{% static 'fatogo_RDB/js/main.js' %}"></script> 
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

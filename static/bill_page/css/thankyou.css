@@ -20,7 +20,7 @@ body {
   padding: 0px;
 }
 
-p, h1, h2, h3, h4, h5, a, div {
+p, h1, h2, h3, h4, h5, a, div, legend, button {
   text-decoration: none;
   font-family: 'Noto Sans KR';
   color: #4a4e52;
@@ -49,7 +49,7 @@ header h1 {
   width: 22.4vmin;
   height: 8vmin;
   margin: 0 0 0 -11.2vmin;
-  background-image: url("../img/FaToGO.png");
+  background-image: url("../../img/FaToGO.png");
   background-size: 22.4vmin 8vmin;
 }
 
@@ -69,14 +69,31 @@ header {
   margin: 0 6.1%;
 }
 
+.vertical>h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 1000;
+  line-height: 1.5;
+  margin-bottom: 90px;
+}
+
 .hotel_name h1 {
   font-size: 24px;
   line-height: 1.5;
   color: #2bb0bf;
 }
 
+.hotel_realplace {
+  margin-top: 20.5px;
+}
+
+.hotel_realplace h3 {
+  font-size: 14px;
+  line-height: 1.43;
+}
+
 .hotel_checkin {
-  margin-top: 38px;
+  margin-top: 20.5px;
 }
 
 .hotel_checkin h3 {
@@ -96,7 +113,7 @@ header {
 .hotel_checkout {
   margin-top: 10px;
   padding-bottom: 30.5px;
-  border-bottom: : solid 1px black;
+  border-bottom: solid 1px #dadada;
 }
 
 .hotel_checkout h3 {
@@ -117,6 +134,7 @@ header {
   margin-top: 20px;
   width: 100%;
   height: 40px;
+  margin-bottom: 40.5px;
 }
 
 .room_people h2 {
@@ -144,9 +162,8 @@ header {
 
 .room_price {
   border: solid 1px #e7e7e7;
-  border-radius: 8px;
   margin-top: 20px;
-  padding: 40px 29.5px 30px;
+  padding: 40px 20px 30px;
 }
 
 .room_price ul {
@@ -169,49 +186,10 @@ header {
 
 .room_nameinfo hr {
   display: inline-block;
-  width: 112px;
+  width: 120px;
   border-width: 1px;
   margin-left: 15px;
   color: #f2f2f2;
-}
-
-.amenity{
-   margin-bottom: 60px;
-}
-
-.amenity_desc {
-  border: solid 1px #dadada;
-  border-radius: 8px;
-  width: 100%;
-  margin-bottom: 30px;
-  padding: 13px 0px;
-}
-
-.amenity_imoticon{
-   display: inline;
-   margin-left: 20px;
-}
-
-.amenity_desc h4{
-   display: inline;
-   font-size: 18px;
-   line-height: 1.5;
-}
-
-.amenity_desc span{
-   display: inline;
-   float: right;
-   margin-right: 20px;
-   font-size: 18px;
-   font-weight: 500;
-   color: #64c0cb;
-}
-
-.amenity_desc span div{
-   display: inline;
-   font-size: 18px;
-   font-weight: 500;
-   color: #64c0cb;
 }
 
 .room_nameinfo .room_prices {
@@ -221,141 +199,127 @@ header {
   float: right;
 }
 
-.amenity_reservation h3 {
-  margin-top: 40.5px;
-  margin-bottom: 40px;
-  font-size: 18px;
+.full_price {
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.full_price h1 {
+  display: inline;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-left: 19.5%;
+}
+
+.full_price .price_text {
+  margin-left: 20px;
+  display: inline;
+  font-size: 26px;
+  line-height: 1.46;
+  color: #2bb0bf;
+}
+
+.half {
+  margin-bottom: 22px;
+}
+
+.tab {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  color: black;
+  overflow: hidden;
+  border: solid 1px #dadada;
+  border-radius: 8px;
+  margin-bottom: 17px;
+  padding: 6px 0px;
+}
+
+.tab input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab label {
+  position: relative;
+  display: block;
+  padding: 0 0 0 2em;
+  background: white;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
 }
 
-.swiper-container {
-  min-height: 60px;
-  margin-bottom: 60px;
-}
-
-.swiper-wrapper {
-  min-height: 60px;
-}
-
-.swiper-slide {
-  min-height: 60px;
-  text-align: center;
-  background: #fff;
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide input[type="checkbox"] {
-  position: relative;
-  display: inline-block;
-  min-height: 50px;
-  width: 50px;
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
   background: white;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+  -webkit-transition: max-height .5s;
+  -o-transition: max-height .5s;
+  transition: max-height .5s;
 }
 
-.swiper-slide input[type="checkbox"]:after {
-  content: '';
-  font-family: 'Noto Sans KR';
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 50px;
-  color: #65c0cb;
+.tab-content p {
+  margin: 1em;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* :checked */
+.tab input:checked~.tab-content {
+  max-height: 100vh;
+}
+
+/* Icon */
+.tab label::after {
   position: absolute;
-  margin: auto auto;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  right: 16px;
   top: 0;
   display: block;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 2px solid #65c0cb;
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: white;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
 }
 
-.swiper-slide input[type="checkbox"]:checked:after {
-  height: 50px;
-  width: 50px;
-  color: white;
-  background-color: #65c0cb;
+.tab input[type=checkbox]+label::after {
+  content: "\25BC";
 }
 
-.swiper-slide input[type="checkbox"]:focus {
-  outline: none;
+.tab input[type=checkbox]:checked+label::after {
+  transform: rotate(180deg);
 }
 
-.swiper-slide input[type="checkbox"]#h16:after {
-  content: '16시';
+.code{
+   width: 100%;
+   padding: 5px 0px;
+   border: solid 1px #dadada;
+   border-radius: 8px;
 }
 
-.swiper-slide input[type="checkbox"]#h17:after {
-  content: '17시';
+.code h3{
+   display: inline;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 1.43;
+   margin-left: 28px;
 }
 
-.swiper-slide input[type="checkbox"]#h18:after {
-  content: '18시';
+.code #code_random{
+   display: inline;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 1.43;
 }
 
-.swiper-slide input[type="checkbox"]#h19:after {
-  content: '19시';
-}
-
-.swiper-slide input[type="checkbox"]#h20:after {
-  content: '20시';
-}
-
-.swiper-slide input[type="checkbox"]#h21:after {
-  content: '21시';
-}
-
-.swiper-slide input[type="checkbox"]#h22:after {
-  content: '22시';
-}
-
-.swiper-slide input[type="checkbox"]#h23:after {
-  content: '23시';
-}
-
-.swiper-slide input[type="checkbox"]#h24:after {
-  content: '24시';
-}
-
-footer {
-  margin-top: 3px;
-  overflow: hidden;
-  clear: both;
-  position: relative;
-  padding: 23px 16px 16px 16px;
-  background: rgb(245, 245, 245);
-  font-size: 10px;
-  line-height: 16px;
-  color: rgba(0, 0, 0, 0.38);
-}
 
 html {
   color: #bf3a3a;

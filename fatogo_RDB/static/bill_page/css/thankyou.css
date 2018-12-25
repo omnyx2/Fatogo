@@ -9,15 +9,30 @@
    ========================================================================== */
 /* 기본 html 픽셀 : 16px 100% 1em*/
 /* 사용 폰트 */
-body{
-   -webkit-overflow-scrolling:touch;
-   overflow-x: hidden;
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 
 * {
   margin: 0px;
   border: 0px;
   padding: 0px;
+}
+
+p, h1, h2, h3, h4, h5, a, div, legend, button {
+  text-decoration: none;
+  font-family: 'Noto Sans KR';
+  color: #4a4e52;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+li {
+  list-style: none;
 }
 
 /* 파투고 로고 헤더 */
@@ -54,160 +69,257 @@ header {
   margin: 0 6.1%;
 }
 
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-li {
-  margin-bottom: 10.6vw;
-  list-style: none;
-  overflow: hidden;
-  position: relative;
-  height: 111.2vw;
-  object-fit: contain;
-  -webkit-backdrop-filter: blur(48px);
-  backdrop-filter: blur(48px);
-  background-color: #ffffff;
-  border-bottom: solid 1px #efefef;
-}
-
-ul li a p img {
-  border-radius: 8px;
-}
-
-img {
-  width: 100%;
-  height: 49vw;
-}
-
-p, h2, h3, h4 {
-  text-decoration: none;
-  font-family: 'Noto Sans KR';
-  color: #4a4e52;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  text-align: left;
-}
-
-.hotel_description {
-  height: 203px;
-  position: relative;
-  margin-top: 30px;
-}
-
-.hotel_name, .hotel_place, .hotel_evaluation, .hotel_amenity, .hotel_price {
-  position: absolute;
-}
-
-.hotel_name {
-  height: 36px;
-}
-
-.hotel_name h2 {
-  font-size: 1.5rem;
+.vertical>h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 1000;
   line-height: 1.5;
-  color: #4a4e52;
+  margin-bottom: 90px;
 }
 
-.hotel_place {
-  top: 46px;
+.hotel_name h1 {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #2bb0bf;
 }
 
-.hotel_place h3 {
+.hotel_realplace {
+  margin-top: 20.5px;
+}
+
+.hotel_realplace h3 {
   font-size: 14px;
   line-height: 1.43;
 }
 
-.hotel_evaluation {
-  top: 46px;
-  right: 1px;
+.hotel_checkin {
+  margin-top: 20.5px;
 }
 
-.hotel_star, .hotel_grade, .hotel_review_number {
+.hotel_checkin h3 {
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.hotel_checkin span {
+  float: right;
+  display: inline;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.hotel_checkout {
+  margin-top: 10px;
+  padding-bottom: 30.5px;
+  border-bottom: solid 1px #dadada;
+}
+
+.hotel_checkout h3 {
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.hotel_checkout span {
+  float: right;
+  display: inline;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.room_people {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40.5px;
+}
+
+.room_people h2 {
+  float: left;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-left: 160px;
+}
+
+.room_people span {
+  float: right;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.price_info {
+  margin-top: 44.5px;
+}
+
+.price_info h3 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.room_price {
+  border: solid 1px #e7e7e7;
+  margin-top: 20px;
+  padding: 40px 20px 30px;
+}
+
+.room_price ul {
+  width: 100%;
+}
+
+.room_nameinfo {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.room_nameinfo h3 {
+  float: left;
+  display: inline;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.room_nameinfo hr {
   display: inline-block;
+  width: 120px;
+  border-width: 1px;
+  margin-left: 15px;
+  color: #f2f2f2;
 }
 
-.hotel_star {
-  margin-right: 0px;
-  color: #fecb18;
+.room_nameinfo .room_prices {
+  display: inline;
+  font-size: 16px;
+  line-height: 1.5;
+  float: right;
 }
 
-.hotel_grade {
-  margin-right: 7px;
+.full_price {
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
-.hotel_grade h3 {
-  font-size: 14px;
-  line-height: 1.21;
-}
-
-.hotel_review_number h4 {
-  opacity: 0.7;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.21;
-}
-
-.hotel_amenity {
-  top: 86px;
-  height: 15px;
-}
-
-.hotel_amenity_icons, .hotel_amenity p {
-  display: inline-block;
-}
-
-.hotel_amenity_icons {
-  width: 83px;
-  height: 23px;
-  background-color: gray;
-}
-
-.hotel_price {
-  top: 135.5px;
-  right: 1px;
-}
-
-.hotel_price h2 {
-  display: inline-block;
+.full_price h1 {
+  display: inline;
   font-size: 24px;
   font-weight: normal;
   line-height: 1.5;
-  margin-right: 7px;
+  margin-left: 19.5%;
 }
 
-.hotel_price p {
-  display: inline-block;
+.full_price .price_text {
+  margin-left: 20px;
+  display: inline;
   font-size: 26px;
   line-height: 1.46;
-  letter-spacing: normal;
-  text-align: left;
   color: #2bb0bf;
 }
 
-
-
-
-footer {
-  margin-top: 3px;
-  overflow: hidden;
-  clear: both;
-  position: relative;
-  padding: 23px 16px 16px 16px;
-  background: rgb(245, 245, 245);
-  font-size: 10px;
-  line-height: 16px;
-  color: rgba(0, 0, 0, 0.38);
+.half {
+  margin-bottom: 22px;
 }
+
+.tab {
+  position: relative;
+  margin-bottom: 1px;
+  width: 100%;
+  color: black;
+  overflow: hidden;
+  border: solid 1px #dadada;
+  border-radius: 8px;
+  margin-bottom: 17px;
+  padding: 6px 0px;
+}
+
+.tab input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab label {
+  position: relative;
+  display: block;
+  padding: 0 0 0 2em;
+  background: white;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  -webkit-transition: max-height .5s;
+  -o-transition: max-height .5s;
+  transition: max-height .5s;
+}
+
+.tab-content p {
+  margin: 1em;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* :checked */
+.tab input:checked~.tab-content {
+  max-height: 100vh;
+}
+
+/* Icon */
+.tab label::after {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.tab input[type=checkbox]+label::after {
+  content: "\25BC";
+}
+
+.tab input[type=checkbox]:checked+label::after {
+  transform: rotate(180deg);
+}
+
+.code{
+   width: 100%;
+   padding: 5px 0px;
+   border: solid 1px #dadada;
+   border-radius: 8px;
+}
+
+.code h3{
+   display: inline;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 1.43;
+   margin-left: 28px;
+}
+
+.code #code_random{
+   display: inline;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 1.43;
+}
+
 
 html {
   color: #bf3a3a;
@@ -216,12 +328,10 @@ html {
 }
 
 @media only screen and (min-width : 1024px) {
-   .vertical{
-      margin: 0 18.3%;
-   }
+  .vertical {
+    margin: 0 18.3%;
+  }
 }
-
-
 
 /*
  * Remove text-shadow in selection highlight:

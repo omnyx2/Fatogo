@@ -8,20 +8,21 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-
+  {%load static%}
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
-  <link rel="stylesheet" href="css\swiper.min.css">
+    
+  <link rel="stylesheet" href="{% static 'hotel_page/css/swiper.min.css' %}">
 
 
 
 
   <title>Fatogo</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/hotel_travelinfo.css">
+  <link rel="stylesheet" href="{% static 'hotel_page/css/normalize.css'%}">
+  <link rel="stylesheet" href="{% static 'hotel_page/css/hotel_travelinfo.css'%}">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 
   <header>
     <h1>
-      <a href="C:\Users\nucle\Desktop\Dev\1.main_page\index.html" title="Fatogo">Fatogo test1</a>
+      <a href="../" title="Fatogo">Fatogo test1</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
     </h1>
   </header>
   <div class="vertical">
@@ -45,25 +46,25 @@
       <div class="hotel_slideshow_1">
         <div class="swiper-container" id="swiper-container1">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->}
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
-            <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+            <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
             </div>
           </div>
         </div>
@@ -92,25 +93,25 @@
     <div class="hotel_slideshow_1">
       <div class="swiper-container" id="swiper-container2">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
-          <div class="swiper-slide"><img src="C:\Users\nucle\Desktop\Dev\img\hotel1\Hotel_intro1.png" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
+          <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="184.5px" width="100%"><!-- 이미지 파일 -->
           </div>
         </div>
       </div>
@@ -146,14 +147,14 @@
 
 
 
-  <script src="js\swiper.min.js"></script>
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="{% static 'hotel_page/js/swiper.min.js'%}"></script>
+  <script src="{% static 'hotel_page/js/vendor/modernizr-3.6.0.min.js'%}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+    window.jQuery || document.write('<script src="{% static 'hotel_page/js/vendor/jquery-3.3.1.min.js'%}"><\/script>')
   </script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="{% static 'hotel_page/js/plugins.js'%}"></script>
+  <script src="{% static 'hotel_page/js/main.js'%}"></script>
   <script>
     var swiper1 = new Swiper('#swiper-container1', {
       spaceBetween: 20,

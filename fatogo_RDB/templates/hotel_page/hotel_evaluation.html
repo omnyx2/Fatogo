@@ -16,11 +16,10 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
 
 
-
-
+  {% load static %}
   <title>Fatogo</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/hotel_evaluation.css">
+  <link rel="stylesheet" href="{% static 'hotel_page/css/normalize.css'%}">
+  <link rel="stylesheet" href="{% static 'hotel_page/css/hotel_evaluation.css'%}">
 </head>
 
 <body>
@@ -32,7 +31,7 @@
 
   <header>
     <h1>
-      <a href="C:\Users\nucle\Desktop\Dev\1.main_page\index.html" title="Fatogo">Fatogo test1</a>
+      <a href="../" title="Fatogo">Fatogo test1</a>
     </h1>
   </header>
 
@@ -102,13 +101,13 @@
 
 
 
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="{% static 'hotel_page/js/vendor/modernizr-3.6.0.min.js'%}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')
+    window.jQuery || document.write('<script src="{% static 'hotel_page/js/vendor/jquery-3.3.1.min.js'%}"><\/script>')
   </script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="{% static 'hotel_page/js/plugins.js'%}"></script>
+  <script src="{% static 'hotel_page/js/main.js'%}"></script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function() {
