@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   
   {% load static %}
 
@@ -39,78 +40,34 @@
   </header>
 
   <!-- 목록 -->
+  
   <div class="vertical">
     <ul>
-      {% if hotel_infomation_list %}
-      {% for hotel in hotel_infomation_list %}
-      {% for hotel_address in hotel_address_parts %}
+      {% for hotel in array %}
       <li class="item" id="item01">
-        <a href="{% url 'hotel_main_test' hotel_name %} "><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
-          <p class="pic">
-            <img src="{% static 'img/Hotel_1.png' %}" alt="김파투고의 김여행 김모텔 프론트사진">
-            <!-- 이미지 파일 -->
-          </p>
-          <div class="hotel_description">
-            <div class="hotel_name">
-              <h2>{{hotel.hotelName}}</h2>
-            </div> 
-            <div class="hotel_place">
-              <h3>{{hotel_address.address1}} {{hotel_address.address3}}</h3>
-            </div>
-            <div class="hotel_evaluation">
-
-              <div class="hotel_star">
-                ★★★★☆
-              </div>
-              <div class="hotel_grade">
-                <h3>{{hotel.hotelAvgScore}}</h3>
-              </div>
-              <div class="hotel_review_number">
-                <h4>(330)</h4>
-              </div>
-            </div>
-
-            <div class="hotel_amenity">
-              <div class="hotel_amenity_icons">
-              </div>
-              <p>+4</p>
-            </div>
-            <div class="hotel_price">
-              <h2>적정가</h2>
-              <p>350,000원~</p>
-            </div>
-          </div>
-        </a>
-      </li>
-      {% endfor %}
-      {% endfor %}
-      {% endif %} 
-      <li class="item" id="item02">
-        <a href="{% url 'hotel_main' %}"><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
+        <a href="{% url 'hotel_main' hotel.hotel_code %}"><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
           <p class="pic">
             <img src="{% static 'img/Hotel_1.png' %}" altalt="김파투고의 김여행 김모텔 프론트사진"><!-- 이미지 파일 -->
           </p>
           <div class="hotel_description">
             <div class="hotel_name">
-              <h2>라마다 프라자 광주 호텔</h2>
+              <h2>{{hotel.hotel_name}}</h2>
             </div>
 
             <div class="hotel_place">
-              <h3>광주광역시 서구</h3>
+              <h3>{{hotel.hotel_address1}} {{hotel.hotel_address3}}</h3>
             </div>
             <div class="hotel_evaluation">
-
-              <div class="hotel_star">
-                ★★★★☆
+              <div class="hotel_star" id="hotel_star"> 
+                
               </div>
-              <div class="hotel_grade">
-                <h3>7.5</h3>
+              <div class="hotel_grade" id="hotel_grade">
+                {{hotel.hotel_score}}
               </div>
               <div class="hotel_review_number">
-                <h4>(330)</h4>
+                <h4>({{hotel.hotel_review_number}})</h4>
               </div>
             </div>
-
             <div class="hotel_amenity">
               <div class="hotel_amenity_icons">
               </div>
@@ -118,53 +75,16 @@
             </div>
             <div class="hotel_price">
               <h2>적정가</h2>
-              <p>350,000원~</p>
+              <p>{{hotel.hotel_price}}원~</p>
             </div>
           </div>
         </a>
       </li>
-      <li class="item" id="item03">
-        <a href="{% url 'hotel_main' %}"><!-- 2.hotel_page 폴더의 hotel_main.html 파일로 이동함-->
-          <p class="pic">
-            <img src="{% static 'img/Hotel_1.png' %}" altalt="김파투고의 김여행 김모텔 프론트사진"><!-- 이미지 파일 -->
-          </p>
-          <div class="hotel_description">
-            <div class="hotel_name">
-              <h2>라마다 프라자 광주 호텔</h2>
-            </div>
-
-            <div class="hotel_place">
-              <h3>광주광역시 서구</h3>
-            </div>
-            <div class="hotel_evaluation">
-
-              <div class="hotel_star">
-                ★★★★☆
-              </div>
-              <div class="hotel_grade">
-                <h3>7.5</h3>
-              </div>
-              <div class="hotel_review_number">
-                <h4>(330)</h4>
-              </div>
-            </div>
-
-            <div class="hotel_amenity">
-              <div class="hotel_amenity_icons">
-              </div>
-              <p>+4</p>
-            </div>
-            <div class="hotel_price">
-              <h2>적정가</h2>
-              <p>350,000원~</p>
-            </div>
-          </div>
-        </a>
-      </li>
+      {% endfor %}
     </ul>
-  </div>
-
-
+  </div>    
+ 
+    
 
 
 

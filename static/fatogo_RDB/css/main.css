@@ -139,14 +139,12 @@ p, h2, h3, h4 {
 .hotel_star {
   margin-right: 0px;
   color: #fecb18;
+  font-size: 15px;
 }
 
 .hotel_grade {
   margin-right: 7px;
-}
-
-.hotel_grade h3 {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.21;
 }
 

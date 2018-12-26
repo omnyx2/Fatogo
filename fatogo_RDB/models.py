@@ -45,10 +45,11 @@ class CompanyInfomations(models.Model):
     identifyCode = models.CharField(max_length=100, primary_key=True, unique=True)
     hotelName = models.CharField(max_length=100, default='testasdas')
     hotelAvgScore = models.CharField(max_length=3, default='testasdas')
+    hotelTotalReview = models.PositiveSmallIntegerField(default=0)
     hotelTraffic = models.IntegerField(default=0)
     
-    def getHotelName():
-        return hotelName
+    def __unicode__(self):
+        return '%s' % self.identifyCode
     
 class CompanyMasterInfomations(models.Model):
     companyInfo_CompanyMasterInfomationsFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE, default='none')

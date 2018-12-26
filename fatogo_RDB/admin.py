@@ -25,6 +25,8 @@ from .models import CompanyInnerRoomFacilites
 from .models import CompanyAroundEnvironment
 
 # Register your models here.
+
+    
 @admin.register(CompanyInfomations)
                 #CompanyMasterInfomations,
                 #CompanyAccounts,
@@ -41,6 +43,7 @@ class AdminCompanyInfomations(admin.ModelAdmin):
                     'hotelAvgScore',
                     'hotelTraffic'
                    ]
+
 @admin.register(CompanyMasterInfomations)
 class AdminCompanyMasterInfomations(admin.ModelAdmin):
     list_display = ['__unicode__',
@@ -50,6 +53,7 @@ class AdminCompanyMasterInfomations(admin.ModelAdmin):
                     'masterPhoneNumber',
                     'masterEmail'
                     ]
+    
 @admin.register(CompanyAccounts)
 class AdminCompanyAccounts(admin.ModelAdmin):
     list_display = ['__unicode__',

@@ -5,9 +5,9 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     
-    #handling about url of hotel_page 
-    url(r'hotel_page/hotel_main.html', views.hotel_main, name='hotel_main'),
-    url(r'^(?P<hotel_name>)\d+/hotelpage/$',views.hotel_main_test, name='hotel_main_test'),
+    #handling about url of hotel_page
+    url(r'(?P<hotel_code>.+)/hotel_main.html/$',views.hotel_main, name='hotel_main'),
+#    url(r'hotel_page/hotel_main.html/$',views.hotel_main,  name='hotel_main'),
     url(r'hotel_page/hotel_amenity.html', views.hotel_amenity, name='hotel_amenity'),
     url(r'hotel_page/hotel_evaluation.html', views.hotel_evaluation, name='hotel_evaluation'),
     url(r'hotel_page/hotel_slideshow.html', views.hotel_slideshow, name='hotel_slideshow'),

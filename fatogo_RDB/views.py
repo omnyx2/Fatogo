@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-#form, post handling
 
+from django.views.generic import ListView
 
 #This is for webpage rendering
 from django.shortcuts import render
@@ -19,31 +19,62 @@ from .models import CompanyAroundFacilites
 from .models import CompanyInnerRoomFacilites
 from .models import CompanyAroundEnvironment
 
+
+
+
 # Create your views here.
 
 def index(request):
     #form = PostForm()
-    hotel_Infomation_list = CompanyInfomations.objects.all()
-    #chang filter to get
-    hotel_Address_parts = CompanyAddress.objects.filter(companyInfo_AddressFK=hotel_Infomation_list)
-    context = {
-                'hotel_infomation_list':hotel_Infomation_list,
-                'hotel_address_parts': hotel_Address_parts
-              }
+        
+    hotel_lists = CompanyInfomations.objects.all()
+    context = {}    
+    cnt = 0
+    
+    for hotel in hotel_lists :
+                
+        hotel_address = CompanyAddress.objects.get(companyInfo_AddressFK = hotel.identifyCode )
+                
+        context_temp = {
+            'hotel_name' : hotel.hotelName,
+            'hotel_code' : hotel.identifyCode,
+            'hotel_address1' : hotel_address.address1,
+            'hotel_address3' : hotel_address.address3,
+#            'hotel_main_imgdir' : '',
+#            'hotel_main_emojidir' : '', 
+            'hotel_score' : hotel.hotelAvgScore,
+            'hotel_reivew_number' : hotel.hotelTotalReview,
+            'hotel_price' : '350,000'
+        }
+        context.update(((hotel.identifyCode,context_temp),))
+    
+    arr = []
+    for hotel in hotel_lists:
+        hotel_address = CompanyAddress.objects.get(companyInfo_AddressFK = hotel.identifyCode )
+        temp = {
+            'hotel_name' : hotel.hotelName,
+            'hotel_name' : hotel.hotelName,
+            'hotel_code' : hotel.identifyCode,
+            'hotel_address1' : hotel_address.address1,
+            'hotel_address3' : hotel_address.address3,
+#            'hotel_main_imgdir' : '',
+#            'hotel_main_emojidir' : '', 
+            'hotel_score' : hotel.hotelAvgScore,
+            'hotel_review_number' : hotel.hotelTotalReview,
+            'hotel_price' : '350,000'
+        }
+        print(temp)
+        arr.append(temp)
+
+    print (arr)
+    context = {'array' : arr}
+    print(context)
     return render(request, 'fatogo_RDB/index.html', context)
 
 
 #hotel_page url setting
-
-def hotel_main_test(request, hotel_name):
-    hotel_Infomation_list = CompanyInfomations.objects.all()
-    hotel_name = hotel_Infomation_list.values()[1]
-    return render(request, 'hotel_page/hotel_main.html')
-
-def hotel_main(request):
+def hotel_main(request, hotel_code):
     return render(request, 'hotel_page/hotel_main.html', {})
-
-
 def hotel_amenity(request):
     return render(request, 'hotel_page/hotel_amenity.html', {})
 def hotel_evaluation(request):
