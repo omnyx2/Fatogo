@@ -113,16 +113,17 @@ class AdminCompanyAroundFacilites(admin.ModelAdmin):
 class AdminCompanyRoomTypeInfomations(admin.ModelAdmin):
     list_display = ['__unicode__',
                     'roomType',
-                    'roomWidth',  
+                    'roomWidth',
                     'roomHeight',
                     'roomPrice',
                     'roomMaxHumanNum',
                     'roomAvgHumanNum',
-                   ]
-    
+                    ]
 @admin.register(CompanyInnerRoomFacilites)
 class AdminCompanyInnerRoomFacilite(admin.ModelAdmin):
     list_display = ['__unicode__',
+                    'companyInfo_companyRoomFacilitesFK',
+                    'companyRoomTypeInfomations_InnerRoomFacilitesFK',
                     'facilitesName',
                     'oneFacilitesMemberMaxNum'
                    ]
