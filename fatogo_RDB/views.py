@@ -9,15 +9,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 #import every models of Company
-from .models import CompanyInfomations
-from .models import CompanyMasterInfomations
-from .models import CompanyAccounts
-from .models import CompanyReview
-from .models import CompanyAddress
-from .models import CompanyAuxiliaryFacilites
-from .models import CompanyAroundFacilites
-from .models import CompanyInnerRoomFacilites
-from .models import CompanyAroundEnvironment
+from fatogo_RDB.models import CompanyInfomations
+from fatogo_RDB.models import CompanyMasterInfomations
+from fatogo_RDB.models import CompanyAccounts
+from fatogo_RDB.models import CompanyReview
+from fatogo_RDB.models import CompanyAddress
+from fatogo_RDB.models import CompanyAuxiliaryFacilites
+from fatogo_RDB.models import CompanyAroundFacilites
+from fatogo_RDB.models import CompanyInnerRoomFacilites
+from fatogo_RDB.models import CompanyAroundEnvironment
 
 
 

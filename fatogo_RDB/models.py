@@ -47,7 +47,8 @@ class CompanyInfomations(models.Model):
     hotelAvgScore = models.CharField(max_length=3, default='testasdas')
     hotelTotalReview = models.PositiveSmallIntegerField(default=0)
     hotelTraffic = models.IntegerField(default=0)
-    
+    hotelCheckout = models.IntegerField(default=0)
+    hotelCheckin  = models.IntegerField(default=0)
     def __unicode__(self):
         return '%s' % self.identifyCode
     
@@ -126,14 +127,7 @@ class CompanyAroundFacilites(models.Model):
     def __unicode__(self):
         return '%s' % self.companyInfo_AroundFacilitesFK.identifyCode  
         
-class CompanyInnerRoomFacilites(models.Model):
-    companyInfo_InnerRoomFacilitesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
-    #기본정보
-    facilitesName = models.CharField(max_length=100, default='testasdas')
-    oneFacilitesMemberMaxNum = models.IntegerField() 
-    def __unicode__(self):
-        return '%s' % self.companyInfo_InnerRoomFacilitesFK.identifyCode
-    
+
 class CompanyAroundEnvironment(models.Model):
     companyInfo_AroundEnvironmentFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
     
@@ -147,7 +141,28 @@ class CompanyAroundEnvironment(models.Model):
     def __unicode__(self):
         return '%s' % self.companyInfo_AroundEnvironmentFK.identifyCode
     
+class CompanyRoomTypeInfomations(models.Model):
+    companyInfo_RoomTypeInfomations = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
+    roomType = models.CharField(max_length=100, primary_key=True, unique=True, default='testasdas')
+    roomWidth = models.PositiveSmallIntegerField(default=0)
+    roomHeight = models.PositiveSmallIntegerField(default=0)
+    roomPrice = models.IntegerField(default=0)
+    roomMaxHumanNum = models.IntegerField(default=3)
+    roomAvgHumanNum = models.IntegerField(default=1)
+    def __unicode__(self):
+        return '%s' %  companyInfo_RoomTypeInfomations.identifyCode
     
+    
+class CompanyInnerRoomFacilites(models.Model):
+    companyInfo_companyRoomFacilitesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
+    #기본정보
+    companyRoomTypeInfomations_InnerRoomFacilitesFK = models.ForeignKey('CompanyRoomTypeInfomations', on_delete=models.CASCADE)
+    #기본정보
+    facilitesName = models.CharField(max_length=100, default='testasdas')
+    oneFacilitesMemberMaxNum = models.IntegerField() 
+    def __unicode__(self):
+        return '%s' % self.companyInfo_InnerRoomFacilitesFK.identifyCode
+        
 class CompanyReview(models.Model):
     companyInfo_ReviewFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
     #4 types of score
