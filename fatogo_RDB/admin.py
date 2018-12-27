@@ -23,7 +23,7 @@ from .models import CompanyAuxiliaryFacilites
 from .models import CompanyAroundFacilites
 from .models import CompanyInnerRoomFacilites
 from .models import CompanyAroundEnvironment
-
+from .models import CompanyRoomTypeInfomations
 # Register your models here.
 
     
@@ -109,11 +109,20 @@ class AdminCompanyAroundFacilites(admin.ModelAdmin):
                     'serviceStart',
                     'serviceEnd'
                    ]
+@admin.register(CompanyRoomTypeInfomations)
+class AdminCompanyRoomTypeInfomations(admin.ModelAdmin):
+    list_display = ['__unicode__',
+                    'roomType',
+                    'roomWidth',  
+                    'roomHeight',
+                    'roomPrice',
+                    'roomMaxHumanNum',
+                    'roomAvgHumanNum',
+                   ]
     
 @admin.register(CompanyInnerRoomFacilites)
 class AdminCompanyInnerRoomFacilite(admin.ModelAdmin):
     list_display = ['__unicode__',
-                    'companyInfo_InnerRoomFacilitesFK',
                     'facilitesName',
                     'oneFacilitesMemberMaxNum'
                    ]
