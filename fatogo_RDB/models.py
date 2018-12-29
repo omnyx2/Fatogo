@@ -11,9 +11,9 @@ CompanyMasterInfomations
 CompanyAccounts
 CompanyReview
 CompanyAddress
-CompanyAuxiliaryFacilites
-CompanyAroundFacilites
-CompanyInnerRoomFacilites
+CompanyAuxiliaryfacilities
+CompanyAroundfacilities
+CompanyInnerRoomfacilities
 CompanyAroundEnvironment
 """
 
@@ -34,11 +34,18 @@ class UserInfo(models.Model):
     desiredTripAreaGU = models.CharField(max_length=100, default='testasdas')
     expectMemberNumber = models.PositiveSmallIntegerField()
     
-    #desired Facilites
-    desiredAuxiliaryFacilites = models.CharField(max_length=100)
-    desiredInnerFacilites = models.CharField(max_length=100)
-    desiredAroundFacilites = models.CharField(max_length=100)
+    #desired facilities
+    desiredAuxiliaryfacilities = models.CharField(max_length=100)
+    desiredInnerfacilities = models.CharField(max_length=100)
+    desiredAroundfacilities = models.CharField(max_length=100)
     desiredAroundEnvironment = models.CharField(max_length=100)
+    
+    #reservedroom
+    reservedroom = models.CharField
+    reservedPrice = models.CharField
+    reservedAuxiliaryfacilities = models.CharField
+    def __unicode__(self):
+        return '%s' % self.kakaoTalkID
     
     
 class CompanyInfomations(models.Model):
@@ -83,16 +90,16 @@ class CompanyAddress(models.Model):
     #건물번호(번지) = address6, address6_1
     #상세주소 = address7
     #참고사항 = address8 
-    address1 = models.CharField(max_length=100, default='testasdas')
-    address2 = models.CharField(max_length=100, default='testasdas')
-    address3 = models.CharField(max_length=100, default='testasdas')
-    address4 = models.CharField(max_length=100, default='testasdas')
-    address5 = models.CharField(max_length=100, default='testasdas')
-    address5_1 = models.CharField(max_length=100, default='testasdas')
-    address6 = models.CharField(max_length=100, default='testasdas')
-    address6_1 = models.CharField(max_length=100, default='testasdas')
-    address7 = models.CharField(max_length=100, default='testasdas')
-    address8 = models.CharField(max_length=100, default='testasdas')
+    address1 = models.CharField(max_length=100, default='testasdas',)
+    address2 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address3 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address4 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address5 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address5_1 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address6 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address6_1 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address7 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
+    address8 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
     
     #위도 경도 정보
     addressLatitude = models.CharField(max_length=100, default='testasdas')
@@ -100,32 +107,34 @@ class CompanyAddress(models.Model):
     def __unicode__(self):
         return '%s' % self.companyInfo_AddressFK.identifyCode
     
-class CompanyAuxiliaryFacilites(models.Model):
+class CompanyAuxiliaryfacilities(models.Model):
+    #PF
+    id = models.AutoField(primary_key=True)
     #FK
-    companyInfo_AuxiliaryFacilitesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
+    companyInfo_AuxiliaryfacilitiesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
     #기본정보
-    facilitesName = models.CharField(max_length=100, default='testasdas')
-    facilitesNumber = models.PositiveSmallIntegerField()
-    oneFacilitesMemberMaxNum = models.PositiveSmallIntegerField()
+    facilitiesName = models.CharField(max_length=100, default='testasdas')
+    facilitiesNumber = models.PositiveSmallIntegerField()
+    onefacilitiesMemberMaxNum = models.PositiveSmallIntegerField()
     #단위시간
-    oneFacilitesMinTimeCell = models.PositiveSmallIntegerField()
+    onefacilitiesMinTimeCell = models.PositiveSmallIntegerField()
     priceForOneTimeCell = models.IntegerField()
     serviceStart = models.PositiveSmallIntegerField()
     serviceEnd =  models.PositiveSmallIntegerField()
     def __unicode__(self):
-        return '%s' % self.companyInfo_AuxiliaryFacilitesFK.identifyCode
+        return '%s' % self.companyInfo_AuxiliaryfacilitiesFK.identifyCode+self.facilitiesName
 
-class CompanyAroundFacilites(models.Model):
-    companyInfo_AroundFacilitesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
+class CompanyAroundfacilities(models.Model):
+    companyInfo_AroundfacilitiesFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
     #기본정보 시간은 전부 분단위
-    facilitesName = models.CharField(max_length=100, default='testasdas')
-    facilitesExplain = models.TextField(max_length=20000, default='testasdas')
+    facilitiesName = models.CharField(max_length=100, default='testasdas')
+    facilitiesExplain = models.TextField(max_length=20000, default='testasdas')
     timeForWalk  = models.PositiveSmallIntegerField()
     timeForCar = models.PositiveSmallIntegerField()
     serviceStart = models.PositiveSmallIntegerField()
     serviceEnd =  models.PositiveSmallIntegerField()
     def __unicode__(self):
-        return '%s' % self.companyInfo_AroundFacilitesFK.identifyCode  
+        return '%s' % self.companyInfo_AroundfacilitiesFK.identifyCode  
         
 
 class CompanyAroundEnvironment(models.Model):
@@ -142,26 +151,32 @@ class CompanyAroundEnvironment(models.Model):
         return '%s' % self.companyInfo_AroundEnvironmentFK.identifyCode
     
 class CompanyRoomTypeInfomations(models.Model):
+    
+    id = models.AutoField(primary_key=True)
     companyInfo_RoomTypeInfomationsFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
-    roomType = models.CharField(max_length=100, primary_key=True, unique=True, default='testasdas')
+    
+    roomType = models.CharField(max_length=100, default='testasdas')
     roomWidth = models.PositiveSmallIntegerField(default=0)
     roomHeight = models.PositiveSmallIntegerField(default=0)
+    roomsize = models.PositiveSmallIntegerField(default=0)
     roomPrice = models.IntegerField(default=0)
     roomMaxHumanNum = models.IntegerField(default=3)
     roomAvgHumanNum = models.IntegerField(default=1)
     def __unicode__(self):
-        return '%s' %  self.companyInfo_RoomTypeInfomationsFK.identifyCode
+        return '%s' % self.companyInfo_RoomTypeInfomationsFK+self.roomType
     
-class CompanyInnerRoomFacilites(models.Model):
+class CompanyInnerRoomfacilities(models.Model):
    
-    companyRoomTypeInfomations_companyInnerRoomFacilitesFK = models.ForeignKey('CompanyRoomTypeInfomations', on_delete=models.CASCADE)
+    companyRoomTypeInfomations_companyInnerRoomfacilitiesFK = models.ForeignKey('CompanyRoomTypeInfomations', on_delete=models.CASCADE)
     #기본정보
-    facilitesName = models.CharField(max_length=100, default='testasdas')
-    oneFacilitesMemberMaxNum = models.IntegerField() 
+    facilitiesName = models.CharField(max_length=100, default='testasdas')
+    onefacilitiesMemberMaxNum = models.IntegerField() 
     def __unicode__(self):
-        return '%s' % self.companyRoomTypeInfomations_companyInnerRoomFacilitesFK.identifyCode
+        return '%s' % self.facilitiesName
+        
         
 class CompanyReview(models.Model):
+    
     companyInfo_ReviewFK = models.ForeignKey('CompanyInfomations', on_delete=models.CASCADE)
     #4 types of score
     comfortableScore = models.PositiveSmallIntegerField()
@@ -169,13 +184,73 @@ class CompanyReview(models.Model):
     auxiliaryFacilityScore = models.PositiveSmallIntegerField()
     newerScore = models.PositiveSmallIntegerField()
     avgScore = models.CharField(max_length=3, default='testasdas')
-    
     #Review info
     reviewedDate = models.DateTimeField(default=timezone.now)
     reviewedText = models.TextField(max_length = 2000, default='testasdas')
     reviewedGroup =  models.CharField(max_length=100, default='testasdas')
+
     def __unicode__(self):
         return '%s' % self.companyInfo_ReviewFK.identifyCode
+
     
-#class reservation_system():
-#class credit_info():
+#######################################################    
+#Room reservationSystem
+
+class RoomInfomation(models.Model):
+    id = models.AutoField(primary_key=True)
+    roomNum = models.PositiveSmallIntegerField(default=0)
+    roomFloor = models.PositiveSmallIntegerField(default=0)
+    
+    startPointX = models.PositiveSmallIntegerField(default=0)
+    startPointY = models.PositiveSmallIntegerField(default=0)
+    #referencing
+    userInfo_RoomReservationFK = models.ForeignKey('UserInfo', null=True, blank=True)
+    companyRoomTypeInfomations_RoomInfomationFK =models.ForeignKey(CompanyRoomTypeInfomations)
+    def __unicode__(self):
+        return '%d' % (self.roomNum)
+
+    
+    
+class RoomState(models.Model):
+    roomReservation_roomStateFK = models.ForeignKey(RoomInfomation)
+    reservationBlock = models.BooleanField(default=False)
+    reservated = models.BooleanField(default=False)                                         
+    reservatedDate = models.DateField(blank=True, null=True)
+    reservationFirstDate = models.DateField(blank=True, null=True)
+    reservationEndDate = models.DateField(blank=True, null=True)
+    checkoutTime = models.DateTimeField(blank=True, null=True)
+    checkinTime = models.DateTimeField(blank=True, null=True)
+    
+class AuxiliaryfacilitiesReserveTime(models.Model):
+    AuxiliaryfacilitiesFK = models.ForeignKey('CompanyAuxiliaryfacilities', on_delete=models.CASCADE)
+    reservatedDate = models.DateField(blank=True, null=True)
+    t00 = models.BooleanField(default=False)
+    t01 = models.BooleanField(default=False)
+    t02 = models.BooleanField(default=False)
+    t03 = models.BooleanField(default=False)
+    t04 = models.BooleanField(default=False)
+    t05 = models.BooleanField(default=False)
+    t06 = models.BooleanField(default=False)
+    t06 = models.BooleanField(default=False)
+    t07 = models.BooleanField(default=False)
+    t08 = models.BooleanField(default=False)
+    t09 = models.BooleanField(default=False)
+    t10 = models.BooleanField(default=False)
+    t11 = models.BooleanField(default=False)
+    t12 = models.BooleanField(default=False)
+    t13 = models.BooleanField(default=False)
+    t14 = models.BooleanField(default=False)
+    t15 = models.BooleanField(default=False)
+    t16 = models.BooleanField(default=False)
+    t17 = models.BooleanField(default=False)
+    t18 = models.BooleanField(default=False)
+    t19 = models.BooleanField(default=False)
+    t20 = models.BooleanField(default=False)
+    t21 = models.BooleanField(default=False)
+    t22 = models.BooleanField(default=False)
+    t23 = models.BooleanField(default=False)
+
+    
+    
+    
+    

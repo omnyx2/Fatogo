@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fatogo_RDB.apps.FatogoRdbConfig'
 
+
 ]
 
 MIDDLEWARE = [
