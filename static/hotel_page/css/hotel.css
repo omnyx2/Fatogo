@@ -464,11 +464,12 @@ header {
   line-height: 1.21;
 }
 
-.hotel_room_selectedroom span {
+.hotel_room_selectedroom span div {
   display: inline;
   float: right;
   font-size: 24px;
   line-height: 1.21;
+  margin-right: 5px;
 }
 
 .room_name>h3 {

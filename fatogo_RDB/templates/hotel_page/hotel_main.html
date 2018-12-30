@@ -109,7 +109,7 @@
         <h3>{{hotel_address}}</h3>
       </div>
       <div class="hotel_check_time">
-        <h4>체크인 {{hotel_checkin}} / 체크아웃 AM {{hotel_checkout}}</h4>
+        <h4>체크인 {{hotel_checkin}} / 체크아웃 {{hotel_checkout}}</h4>
       </div>
     </div>
     <!-- 숙소 추천란 -->
@@ -172,9 +172,6 @@
       <div class="hotel_room-list">
         <ul>
           {% for room_type_id, value in hotel_room_type.items %}  
-           <h1>
-               {{room_type_id}}
-            </h1>
           <li class="room_name" id="room_{{room_type_id}}" style="display:none;">
             <h3>{{value.room_type}}</h3>
             <div class="hotel_slideshow_1">
@@ -204,12 +201,14 @@
               <h3>내부 시설</h3>
               <table class="room_amenity">
                 <tbody>
+                    {% for tuple_tmp in value.hotel_room_inner_facilities %}    
                   <tr>
-                    <td>
+                    <td>      
                       <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
+                      <h5>{{tuple_tmp.0}} {{tuple_tmp.1}}개</h5>
                     </td>
                   </tr>
+                    {%endfor%}
                 </tbody>
               </table>
               <div class="room_reservation">
@@ -270,18 +269,31 @@
   <script src="{% static 'hotel_page/js/vendor/modernizr-3.6.0.min.js'%}"></script>
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
     
   <script>
     window.jQuery || document.write('<script src="{% static 'hotel_page/js/vendor/jquery-3.3.1.min.js'%}"><\/script>')
   </script>
 
+    <script>   
+
+    var arr = jQuery.parseJSON('{{hotel_room_info| escapejs}}');
+   
+    </script>
+    
+    
   <script src="{% static 'hotel_page/js/plugins.js'%}"></script>
 
   <script src="{% static 'hotel_page/js/main.js'%}"></script>
   <!-- 스와이퍼 슬라이드 쇼 스크립트 -->
+    
+    
+
+    
     <script>
     var swiper0 = new Swiper('#swiper-container0', {
       spaceBetween: 20,

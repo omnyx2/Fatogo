@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 from django.views.generic import ListView
 import collections
-
+import json
 #This is for webpage rendering
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.forms.models import model_to_dict
 #List of datamodel
 
@@ -53,7 +53,7 @@ def index(request):
       
     hotel_data = []
     for hotel in hotel_lists:
-        hotel_address = CompanyAddress.objects.get(companyInfo_AddressFK = hotel.identifyCode)
+        hotel_address = CompanyAddress.objects.get(companyInfo_AddressFK= hotel.identifyCode)
         temp = {
             'hotel_name' : hotel.hotelName,
             'hotel_code' : hotel.identifyCode,
@@ -150,6 +150,7 @@ def hotel_main(request, hotel_code):
         #makeking hotelroom inner facilities list
     hotel_room_inner_facilities_arr = []
     context_room_info_arr = []
+    context_room_info_dict = {}
     context_room_type_arr = []
     context_room_type_dict ={}
         #data struct [(name,num),(),...]
@@ -178,7 +179,9 @@ def hotel_main(request, hotel_code):
                 'room_position_y':room_info_tmp.startPointY,               
             }
             context_room_info_arr.append(context_room_info_temp)    
-             
+         #   context_room_info_arr= dict(((room_info_tmp.roomNum, context_room_info_temp),))
+         #   context_room_info_dict.update(context_room_info_arr)
+            
         context_room_type_temp = {
             'room_type' : hotel_room_type.roomType,
             'room_size' : hotel_room_type.roomsize,
@@ -201,9 +204,11 @@ def hotel_main(request, hotel_code):
     #    final context data
     context = {}
     context.update(context_info)    
-    context['hotel_room_info'] = context_room_info_arr
+    context['hotel_room_info'] = json.dumps(context_room_info_arr)
     context['hotel_room_type'] = context_room_type_dict
+    print json.dumps(context_room_info_arr)
 
+    
 #    #data struct
 #    'hotel_name':hotel_info.hotelName,
 #    'hotel_avg_score':hotel_info.hotelAvgScore,
@@ -222,7 +227,6 @@ def hotel_main(request, hotel_code):
 #            'hotel_room_inner_facilities' : hotel_room_inner_facilities_arr
 #        }
 #     }
-
 #    'hotel_room_info':[
 #            'room_type_id':hotel_room_type.id,
 #            'room_num':room_info_tmp.roomNum,
@@ -232,21 +236,48 @@ def hotel_main(request, hotel_code):
 #            'room_position_x':room_info_tmp.startPointX,
 #            'room_position_y':room_info_tmp.startPointY
 #            ]
-#    print context.hotel_room_type.iteritems()
+#   
+#    print "------창범이최고에연~---------------------------------------" 
 #    print context
 #    print context.hotel_room_type
-   
-    
+  
     return render(request, 'hotel_page/hotel_main.html', context)
 
             
             
-def hotel_amenity(request, hotel_code):
-    return render(request, 'hotel_page/hotel_amenity.html', {})
+def hotel_amenity(request,hotel_code):
+    
+   # hotel_code hotel_code.split('/')[0]
+    print hotel_code
+    amenity_list = CompanyAuxiliaryfacilities.objects.filter(companyInfo_AuxiliaryfacilitiesFK_id=hotel_code)
+    print(amenity_list.values())
+    amenity_arr = []
+    amenity_dict = {}
+    for amenity_list_emp in amenity_list:
+        amenity_dict = {
+            'amenity_name':amenity_list_emp.facilitiesName,
+            'amenity_num':amenity_list_emp.facilitiesNumber,
+            'amenity_member_max_num':amenity_list_emp.onefacilitiesMemberMaxNum,
+            'amenity_timecell':amenity_list_emp.onefacilitiesMinTimeCell,
+            'amenity_timecell_price':amenity_list_emp.priceForOneTimeCell,
+            'amenity_start':amenity_list_emp.serviceStart,
+            'amenity_end':amenity_list_emp.serviceEnd,
+        }
+        amenity_arr.append(amenity_dict)
+        
+    context = {'amenity_list':amenity_arr}        
+
+    print context
+    return render(request, 'hotel_page/hotel_amenity.html', context)
+
 def hotel_evaluation(request,hotel_code):
+    
     return render(request, 'hotel_page/hotel_evaluation.html', {})
+
 def hotel_slideshow(request,hotel_code):
+    
     return render(request, 'hotel_page/hotel_slideshow.html', {})
+
 def hotel_travel_info(request,hotel_code):
     return render(request, 'hotel_page/hotel_travel_info.html', {})
 

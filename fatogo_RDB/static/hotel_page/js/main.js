@@ -13,9 +13,71 @@ $(document).ready(function() {
 
 
 
-  var f; //floor 변수
-var i; //room_id 변수
-for (var f = 1; f <= 5; f++) {
+// var arr = [{
+//     room_type_id: 1,
+//     room_num: 101,
+//     room_floor: 1,
+//     room_height: 10,
+//     room_width: 10,
+//     room_position_x: 10,
+//     room_position_y: 10
+//   },
+
+//   {
+//     room_type_id: 2,
+//     room_num: 102,
+//     room_floor: 1,
+//     room_height: 20,
+//     room_width: 20,
+//     room_position_x: 20,
+//     room_position_y: 20
+//   },
+//   {
+//     room_type_id: 1,
+//     room_num: 201,
+//     room_floor: 2,
+//     room_height: 10,
+//     room_width: 10,
+//     room_position_x: 10,
+//     room_position_y: 10
+//   },
+//   {
+//     room_type_id: 2,
+//     room_num: 202,
+//     room_floor: 2,
+//     room_height: 20,
+//     room_width: 20,
+//     room_position_x: 20,
+//     room_position_y: 20
+//   }
+// ];
+
+function floorselection(f) {
+  $(".floor").hide();
+  $("#floor_" + f + "").show();
+}
+
+
+function roomselection(i, rt) {
+
+  $('#room_name_list' + i + '').toggle('800');
+
+  if ($(".room_box:checked").length > 0) {
+    $(".purchace").show('800');
+    $(".room_name").hide('800');
+    $("#room_" + rt + "").show('800');
+  } else {
+    $(".purchace").hide('800');
+    $(".room_name").hide('800');
+  }
+
+}
+
+$.each(arr, function(index, item) {
+
+  var f = item.room_floor;
+
+
   var floor = document.createElement("fieldset");
   floor.className = "floor";
   floor.setAttribute("id", "floor_" + f);
@@ -27,85 +89,60 @@ for (var f = 1; f <= 5; f++) {
   floor_select.setAttribute("type", "radio");
   floor_select.setAttribute("name", "floor_select");
   floor_select.setAttribute("id", "btn_floor" + f);
-  floor_select.setAttribute("onclick", "floorselection('" + f + "')");
+  floor_select.setAttribute("onclick", "floorselection(" + f + ")");
   floor_select.className = "floor_select";
 
-  var str = f;
-  $('<style>#btn_floor' + f + ':after{content:"' + str + 'F"}</style>').appendTo('head');
+  $('<style>#btn_floor' + f + ':after{content:"' + f + 'F"}</style>').appendTo('head');
 
-  function floorselection(f) {
-    $(".floor").hide('600');
-    $("#floor_" + f + "").show('600');
-  }
+
 
   document.getElementById('hotel_room_map').appendChild(floor_select);
   $(floor_select).appendTo('.hotel_room_map legend');
 
-  // $('<style>#floor' + f + ':after{content:"' + f + '"}</style>').appendTo('head');
+  var seen = {};
+  $('input#btn_floor' + f + '').each(function() {
+    var txt = $(this).text();
+    if (seen[txt])
+      $(this).remove();
+    else
+      seen[txt] = true;
+  });
 
 
 
-  for (var i = 1; i < 3; i++) {
-    var n = i;
-    var room_box = document.createElement("INPUT");
-    room_box.setAttribute("id", "room" + n);
-    room_box.setAttribute("type", "checkbox");
-    room_box.setAttribute("name", "room_floor" + f + "");
-    room_box.className = "room_box";
-    room_box.style.top = "10%";
-    room_box.style.left = "10%";
-    room_box.style.width = "20%";
-    room_box.style.height = "40%";
-    room_box.setAttribute("onclick", "roomselection(" + n + ")");
 
-    var room_name_list = document.createElement("div");
-    room_name_list.setAttribute("id", "room_name_list" + n);
-    room_name_list.setAttribute("style", "display:none;");
-    $(room_name_list).appendTo('#selected_room');
-    $("#room_name_list" + n + "").append("" + n + "호");
+  var i = item.room_num;
+  var rt = item.room_type_id;
 
-    function roomselection(n) {
+  var room_box = document.createElement("INPUT");
+  room_box.setAttribute("id", "room" + i);
+  room_box.setAttribute("type", "checkbox");
+  room_box.setAttribute("name", "room_floor" + item.room_floor + "");
+  room_box.className = "room_box";
+  room_box.style.top = "" + item.room_position_y + "%";
+  room_box.style.left = "" + item.room_position_x + "%";
+  room_box.style.width = "" + item.room_width + "%";
+  room_box.style.height = "" + item.room_height + "%";
+  room_box.setAttribute("onclick", "roomselection(" + i + "," + rt + ")");
 
-      $('#room_name_list' + n + '').toggle('600');
-
-      if ($(".room_box:checked").length > 0) {
-        $(".purchace").show('600');
-        $(".room_name").hide('600');
-        $("#room_" + n + "").show('600');
-      } else {
-        $(".purchace").hide('600');
-        $(".room_name").hide('600');
-      }
-
-      // if ($("#room" + n + "").prop('checked') == true) {
-      //   $("#selected_room").append("" + n + "호");
-      // } else {
-      //   $("#selected_room").remove(":contains('" + n + "호')");
-      // }
-    }
-
-    document.getElementById('floor_' + f).appendChild(room_box); //class로 변경 후
-
-    var str = n;
-    $('<style>#room' + i + ':after{content:"' + str + '"}</style>').appendTo('head');
-
-  }
+  var room_name_list = document.createElement("div");
+  room_name_list.setAttribute("id", "room_name_list" + i);
+  room_name_list.setAttribute("style", "display:none;");
+  room_name_list.className = "room_name_list"
+  $(room_name_list).appendTo('#selected_room');
+  $("#room_name_list" + i + "").append("" + i + "호");
 
 
-}
 
-// var rn;
-//
-// $(".room_box").on("click", function(){
-//   for (var rn = 1; rn <= $(".room_box").length; rn++) {
-//     if ($("#room" + rn + "").prop('checked') == true) {
-//       $("#selected_room").append("" + rn + "호");
-//     } else {
-//       $("#selected_room").remove(":contains('" + rn + "호')");
-//     }
-//   }
-//
-// });
+  document.getElementById('floor_' + f).appendChild(room_box); //class로 변경 후
+
+  var str = i;
+  $('<style>#room' + i + ':after{content:"' + str + '"}</style>').appendTo('head');
+
+
+
+})
+
 
 
 

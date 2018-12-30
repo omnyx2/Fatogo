@@ -33,7 +33,7 @@
 
   <header>
     <h1>
-      <a href="../" title="Fatogo">Fatogo test1</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
+      <a href="../../" title="Fatogo">Fatogo test1</a><!-- 1.main_page 폴더의 index.html 파일로 이동함-->
     </h1>
   </header>
 
@@ -41,41 +41,16 @@
   <div class="vertical">
     <h2>부대시설 안내 페이지</h2>
     <ul>
+      {% for amenity_temp in amenity_list %}
       <li class="amenity" id="amenity1">
         <div class="amenity_icon">gg</div>
         <div class="amenity_text">
-          <h3>바베큐 총 5자리 사용가능</h3>
-          <p>한 자리당 기준 인원 4명, 총 5000원 가능</p>
+          <h3>{{amenity_temp.amenity_name}} 총 {{amenity_temp.amenity_num}}자리 사용가능</h3>
+          <p>한 자리당 기준 인원 {{amenity_temp.amenity_member_max_num}}명, {{amenity_temp.amenity_timecell}}시간 당 {{amenity_temp.amenity_timecell_price}}원</p>
+            
         </div>
       </li>
-      <li class="amenity" id="amenity2">
-        <div class="amenity_icon"></div>
-        <div class="amenity_text">
-          <h3>캠프파이어</h3>
-          <p>한 자리당 기준 인원 4명, 총 5000원 가능</p>
-        </div>
-      </li>
-      <li class="amenity" id="amenity3">
-        <div class="amenity_icon"></div>
-        <div class="amenity_text">
-          <h3>샤워실</h3>
-          <p>한 자리당 기준 인원 4명, 총 5000원 가능</p>
-        </div>
-      </li>
-      <li class="amenity" id="amenity4">
-        <div class="amenity_icon"></div>
-        <div class="amenity_text">
-          <h3>대강당</h3>
-          <p>한 자리당 기준 인원 4명, 총 5000원 가능</p>
-        </div>
-      </li>
-      <li class="amenity" id="amenity5">
-        <div class="amenity_icon"></div>
-        <div class="amenity_text">
-          <h3>수영장</h3>
-          <p>한 자리당 기준 인원 4명, 총 5000원 가능</p>
-        </div>
-      </li>
+       {% endfor %} 
     </ul>
   </div>
 
@@ -87,9 +62,6 @@
     <p>&copy; HTML CheatSheet</p>
     <address>Contact <a href="mailto:me@htmlg.com">me</a></address>
   </footer>
-
-
-
   <script src="{% static 'hotel_page/js/swiper.min.js'%}"></script>
   <script src="{% static 'hotel_page/js/vendor/modernizr-3.6.0.min.js'%}"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

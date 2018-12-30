@@ -127,7 +127,7 @@ class AdminCompanyAuxiliaryfacilities(admin.ModelAdmin):
                     'serviceEnd'
                    ]
     
- #   inlines = [AdminAuxiliaryfacilitiesReserveTimeInline]
+    inlines = [AdminAuxiliaryfacilitiesReserveTimeInline]
 
     
 class AdminCompanyAroundfacilitiesInline(admin.TabularInline):
