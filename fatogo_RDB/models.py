@@ -90,7 +90,7 @@ class CompanyAddress(models.Model):
     #건물번호(번지) = address6, address6_1
     #상세주소 = address7
     #참고사항 = address8 
-    address1 = models.CharField(max_length=100, default='testasdas',)
+    address1 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
     address2 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
     address3 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
     address4 = models.CharField(max_length=100, default='testasdas',null=True, blank=True)
@@ -166,7 +166,7 @@ class CompanyRoomTypeInfomations(models.Model):
         return '%s' % self.companyInfo_RoomTypeInfomationsFK+self.roomType
     
 class CompanyInnerRoomfacilities(models.Model):
-   
+
     companyRoomTypeInfomations_companyInnerRoomfacilitiesFK = models.ForeignKey('CompanyRoomTypeInfomations', on_delete=models.CASCADE)
     #기본정보
     facilitiesName = models.CharField(max_length=100, default='testasdas')
@@ -187,7 +187,7 @@ class CompanyReview(models.Model):
     #Review info
     reviewedDate = models.DateTimeField(default=timezone.now)
     reviewedText = models.TextField(max_length = 2000, default='testasdas')
-    reviewedGroup =  models.CharField(max_length=100, default='testasdas')
+    reviewedGroup =  models.CharField(max_length=100, default='te stasdas')
 
     def __unicode__(self):
         return '%s' % self.companyInfo_ReviewFK.identifyCode

@@ -87,13 +87,13 @@
     <div class="hotel_evaluation">
       <a href="hotel_evaluation.html">
         <div class="hotel_star">
-
+            
         </div>
         <div class="hotel_grade" id="hotel_grade">
-          5
+          {{hotel_avg_score}}
         </div>
         <div class="hotel_review_number">
-          <h4>(330)</h4>
+          <h4>({{hotel_total_reivew}})</h4>
         </div>
       </a>
     </div>
@@ -103,13 +103,13 @@
     <!-- 숙소 소개란 -->
     <div class="hotel_description_1">
       <div class="hotel_name">
-        <h1>김파투고의 김여행 김모텔</h1>
+        <h1>{{hotel_namge}}</h1>
       </div>
       <div class="hotel_realplace">
-        <h3>광주광역시 북구 첨단과기로 123</h3>
+        <h3>{{hotel_address}}</h3>
       </div>
       <div class="hotel_check_time">
-        <h4>체크인 PM 3:00 / 체크아웃 AM 11:00</h4>
+        <h4>체크인 {{hotel_checkin}} / 체크아웃 AM {{hotel_checkout}}</h4>
       </div>
     </div>
     <!-- 숙소 추천란 -->
@@ -157,6 +157,9 @@
     </div>
     <div class="hotel_room_info">
       <h3>방 지도</h3>
+        <h3>
+        {{hotel_room_type.item}}
+        </h3>
       <p>방을 눌러서 예약, 다시 눌러서 취소하세요</p>
       <form class="hotel_room_map" id="hotel_room_map" action="" method="post">
         <legend></legend>
@@ -168,8 +171,12 @@
       <!-- 리액트를 써야 하는 이유 : 매 스와이퍼 사용할때마다 보디 태그 아래에 따로 함수를 계속 넣어야 함. 불편... -->
       <div class="hotel_room-list">
         <ul>
-          <li class="room_name" id="room_1" style="display:none;">
-            <h3>대단체실</h3>
+          {% for room_type_id, value in hotel_room_type.items %}  
+           <h1>
+               {{room_type_id}}
+            </h1>
+          <li class="room_name" id="room_{{room_type_id}}" style="display:none;">
+            <h3>{{value.room_type}}</h3>
             <div class="hotel_slideshow_1">
               <div class="swiper-container" id="swiper-container2">
                 <div class="swiper-wrapper">
@@ -184,14 +191,15 @@
                 <div class="swiper-pagination" id="swiper-pagination1"></div>
               </div>
             </div>
+            
             <div class="room_info">
               <div class="room_size">
                 <h4>방크기</h4>
-                <div>20명</div>
+                <div>{{value.room_size}}평</div>
               </div>
               <div class="room_people">
                 <h4>기준/최대인원</h4>
-                <div>8/11명</div>
+                <div>{{value.room_avg_human_num}}/{{value.room_max_human_num}}명</div>
               </div>
               <h3>내부 시설</h3>
               <table class="room_amenity">
@@ -200,30 +208,6 @@
                     <td>
                       <div class="room_amenity_icon"></div>
                       <h5>가스레인지</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
                     </td>
                   </tr>
                 </tbody>
@@ -238,146 +222,7 @@
               </div>
             </div>
           </li>
-          <li class="room_name" id="room_2" style="display:none;">
-            <h3>대단체실</h3>
-            <div class="hotel_slideshow_1">
-              <div class="swiper-container" id="swiper-container2">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination" id="swiper-pagination2"></div>
-                </div>
-            </div>
-            <div class="room_info">
-              <div class="room_size">
-                <h4>방크기</h4>
-                <div>20명</div>
-              </div>
-              <div class="room_people">
-                <h4>기준/최대인원</h4>
-                <div>8/11명</div>
-              </div>
-              <h3>내부 시설</h3>
-              <table class="room_amenity">
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="room_reservation">
-                <h3>예약 현황</h3>
-                <div>가능</div>
-              </div>
-              <div class="room_price">
-                <h4>객실가</h4>
-                <div>350,000원</div>
-              </div>
-            </div>
-          </li>
-          <li class="room_name" id="room_3" style="display:none;">
-            <h3>대단체실</h3>
-            <div class="hotel_slideshow_1">
-              <div class="swiper-container" id="swiper-container2">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                  <div class="swiper-slide"><img src="{%static 'img/hotel1/Hotel_intro1.png'%}" alt="김파투고의 김여행 김모텔 프론트사진" height="307.5px" width="100%"><!-- 이미지 파일 -->
-                  </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination" id="swiper-pagination2"></div>
-              </div>
-            </div>
-            <div class="room_info">
-              <div class="room_size">
-                <h4>방크기</h4>
-                <div>20명</div>
-              </div>
-              <div class="room_people">
-                <h4>기준/최대인원</h4>
-                <div>8/11명</div>
-              </div>
-              <h3>내부 시설</h3>
-              <table class="room_amenity">
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>가스레인지</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>수도</h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
-                    </td>
-                    <td>
-                      <div class="room_amenity_icon"></div>
-                      <h5>냉장고</h5>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="room_reservation">
-                <h3>예약 현황</h3>
-                <div>가능</div>
-              </div>
-              <div class="room_price">
-                <h4>객실가</h4>
-                <div>350,000원</div>
-              </div>
-            </div>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
